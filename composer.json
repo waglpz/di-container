@@ -2,7 +2,7 @@
   "name": "waglpz/di-container",
   "description": "Dependency injection container component",
   "license": "MIT",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "type": "library",
   "minimum-stability": "dev",
   "prefer-stable": true,

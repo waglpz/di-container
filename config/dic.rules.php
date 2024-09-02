@@ -14,7 +14,15 @@ if (PHP_SAPI === 'cli' && APP_ENV !== 'test') {
         $config = include __DIR__ . '/container/web.rules.php';
 
         if (is_file(__DIR__ . '/container/webapp-restapi.rules.php')) {
-            $config += include __DIR__ . '/container/webapp-restapi.rules.php';
+            $config = array_replace_recursive($config, include __DIR__ . '/container/webapp-restapi.rules.php');
+        }
+
+        if (is_file(__DIR__ . '/container/webapp-security.rules.php')) {
+            $config = array_replace_recursive($config, include __DIR__ . '/container/webapp-security.rules.php');
+        }
+
+        if (is_file(__DIR__ . '/container/webapp-middleware.rules.php')) {
+            $config = array_replace_recursive($config, include __DIR__ . '/container/webapp-middleware.rules.php');
         }
 
         if (is_file(__DIR__ . '/container/swagger.rules.php')) {
