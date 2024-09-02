@@ -12,6 +12,11 @@ if (PHP_SAPI === 'cli' && APP_ENV !== 'test') {
 } else {
     if (is_file(__DIR__ . '/container/web.rules.php')) {
         $config = include __DIR__ . '/container/web.rules.php';
+
+        if (is_file(__DIR__ . '/container/webapp-restapi.rules.php')) {
+            $config += include __DIR__ . '/container/webapp-restapi.rules.php';
+        }
+
         if (is_file(__DIR__ . '/container/swagger.rules.php')) {
             $config += include __DIR__ . '/container/swagger.rules.php';
         }
